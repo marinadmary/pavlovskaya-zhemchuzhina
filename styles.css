@@ -18,7 +18,7 @@
 @media(max-width:620px){.contact-shortcuts{grid-template-columns:1fr}.contact-shortcuts-section{padding-top:22px}}
 
 .news-cta{box-shadow:0 14px 30px rgba(11,86,183,.28)}
-.map-grid-single{grid-template-columns:1fr}.map-grid-single .map-card{max-width:980px;margin:0 auto}.social-card.vk-card{border-color:#d4e6fb}.social-card.max-card{border-color:#d7deef}.social-card img{background:#fff}.social-card h3{margin-top:2px}.contacts-copy .contact-lines div:first-child strong{white-space:nowrap}
+.map-grid-single{grid-template-columns:1fr}.map-grid-single .map-card{max-width:980px;margin:0 auto}.social-card.vk-card{border-color:#d4e6fb}.social-card.max-card{border-color:#d7deef}.social-card img{background:#fff}.social-card h3{margin-top:2px}
 
 .address-note{margin:18px 0 0;padding:16px 18px;border-radius:16px;background:#f5f9fe;border:1px solid #d9e7f5;color:var(--ink);font-size:15px}.address-note strong{color:var(--blue)}
 .max-logo-image{max-width:170px !important;border:0 !important;background:transparent !important;border-radius:24px !important;padding:10px 0;margin-bottom:8px !important}
@@ -38,3 +38,18 @@
 .contacts-logo img{width:min(100%,420px);height:auto;object-fit:contain}
 @media(max-width:900px){.contacts-logo{max-width:440px;margin:0 auto;padding:18px}.contacts-logo img{width:min(100%,320px)}}
 @media(max-width:620px){.contacts-logo{max-width:280px;margin:0 auto 8px;padding:14px;border-radius:22px}.contacts-logo img{width:min(100%,220px);margin:0 auto}.contacts-section{padding:58px 0}.contacts-grid{gap:34px}}
+
+/* Mobile contacts layout fix */
+.contacts-copy{min-width:0}
+.contact-lines strong,.contact-lines a,.contact-lines span{overflow-wrap:anywhere;word-break:normal}
+@media(max-width:620px){
+  .contacts-section{width:100%;overflow:hidden;padding:54px 0}
+  .contacts-grid{display:flex;flex-direction:column;align-items:stretch;gap:28px;width:100%}
+  .contacts-logo{order:1;width:100%;max-width:260px;margin:0 auto;padding:14px;border-radius:20px}
+  .contacts-logo img{display:block;width:100%;max-width:210px;height:auto;margin:0 auto}
+  .contacts-copy{order:2;width:100%;max-width:100%;min-width:0}
+  .contacts-copy h2{font-size:34px;line-height:1.06;overflow-wrap:anywhere}
+  .contact-lines{display:grid;grid-template-columns:1fr;width:100%;gap:22px}
+  .contact-lines>div,.contact-lines-full{min-width:0;width:100%;grid-column:1/-1}
+  .contact-lines strong,.contact-lines a,.contact-lines span{white-space:normal;overflow-wrap:anywhere;word-break:break-word}
+}
