@@ -32,3 +32,9 @@
 .social-visual{width:100%;height:360px;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:20px;background:#fff;margin-bottom:22px;overflow:hidden;padding:14px}.social-visual img{width:100%;height:100%;max-width:100%;object-fit:contain;border:0 !important;margin:0 !important;background:transparent !important}.social-card{align-items:stretch}.social-card h3{min-height:34px}.social-card p{min-height:44px}.social-card .text-link{margin-top:auto}.service-card#barrier .text-link{display:block}.main-nav a[href="#buyers"]{white-space:nowrap}
 @media(max-width:1000px){.social-visual{height:320px}}
 @media(max-width:620px){.social-visual{height:300px}}
+
+/* Компактный логотип в блоке контактов */
+.contacts-logo{display:flex;justify-content:center;align-items:center}
+.contacts-logo img{width:min(100%,420px);height:auto;object-fit:contain}
+@media(max-width:900px){.contacts-logo{max-width:440px;margin:0 auto;padding:18px}.contacts-logo img{width:min(100%,320px)}}
+@media(max-width:620px){.contacts-logo{max-width:280px;margin:0 auto 8px;padding:14px;border-radius:22px}.contacts-logo img{width:min(100%,220px);margin:0 auto}.contacts-section{padding:58px 0}.contacts-grid{gap:34px}}
