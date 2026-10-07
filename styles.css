@@ -53,3 +53,31 @@
   .contact-lines>div,.contact-lines-full{min-width:0;width:100%;grid-column:1/-1}
   .contact-lines strong,.contact-lines a,.contact-lines span{white-space:normal;overflow-wrap:anywhere;word-break:break-word}
 }
+
+/* v15 — нижний блок контактов без большого логотипа */
+.contacts-section .contacts-grid{
+  display:block;
+  max-width:980px;
+}
+.contacts-section .contacts-copy{
+  width:100%;
+}
+.contacts-section .contact-lines-full strong{
+  line-height:1.45;
+  overflow-wrap:normal;
+  word-break:normal;
+}
+@media(max-width:620px){
+  .contacts-section .contacts-grid{
+    display:block;
+    width:100%;
+  }
+  .contacts-section .contacts-copy{
+    width:100%;
+    min-width:0;
+  }
+  .contacts-section .contact-lines-full strong{
+    font-size:17px;
+    line-height:1.45;
+  }
+}
