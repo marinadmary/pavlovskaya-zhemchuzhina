@@ -142,15 +142,20 @@
       </div>
     </section>
 
-    <section class="section container" id="map">
-      <div class="section-heading reveal">
+    <section class="section container compact-section" id="map">
+      <div class="section-heading reveal compact-heading">
         <p class="eyebrow blue">Карта ТСН</p>
         <h2>Границы территории и схема участков</h2>
         <p>Красной линией показана граница ТСН.</p>
       </div>
-      <div class="map-grid map-grid-single">
-        <div class="map-card reveal"><img src="assets/tsn-boundary-map.png" alt="Генплан посёлка с выделенной границей ТСН" /></div>
-      </div>
+      <details class="section-details reveal">
+        <summary><span>Показать карту границ</span><span class="details-hint">Открыть схему</span></summary>
+        <div class="details-body">
+          <div class="map-grid map-grid-single">
+            <div class="map-card"><img src="assets/tsn-boundary-map.png" alt="Генплан посёлка с выделенной границей ТСН" /></div>
+          </div>
+        </div>
+      </details>
     </section>
 
     <section class="section section-soft" id="socials">
@@ -210,8 +215,11 @@
         <a class="doc-card" href="assets/zayavlenie-na-vremennyy-dopusk-stroiteley.docx" download><span>DOCX</span><strong>Заявление на проезд строителей</strong><small>Временный допуск строителей и подрядчиков</small></a>
         <a class="doc-card" href="assets/instruktsiya-uprava.docx" download><span>DOCX</span><strong>Инструкция по «Управе»</strong><small>Скачать подробную инструкцию по регистрации и оплате</small></a>
       </div>
-      <div class="instruction-stack">
-        <details class="instruction-details reveal">
+      <details class="section-details instructions-collapsible reveal">
+        <summary><span>Показать инструкции</span><span class="details-hint">2 пошаговые инструкции</span></summary>
+        <div class="details-body">
+          <div class="instruction-stack">
+        <details class="instruction-details">
           <summary>Как вступить в ТСН</summary>
           <div class="instruction-content">
             <ol>
@@ -238,11 +246,13 @@
             <a class="text-link" href="assets/instruktsiya-uprava.docx" download>Скачать подробную инструкцию по «Управе» →</a>
           </div>
         </details>
-        <div class="info-note reveal">
+        <div class="info-note">
           <strong>Важно по заявлению на шлагбаум</strong>
           <p>Согласие на обработку персональных данных нужно от владельца каждого номера телефона, который указывается в заявлении на шлагбаум.</p>
         </div>
-      </div>
+          </div>
+        </div>
+      </details>
     </section>
 
 
@@ -254,6 +264,9 @@
           <p>Нажмите «Скопировать» рядом с нужным реквизитом или скопируйте всё одним нажатием.</p>
         </div>
 
+        <details class="section-details requisites-collapsible reveal">
+          <summary><span>Показать реквизиты</span><span class="details-hint">Банк, счёт и назначение платежа</span></summary>
+          <div class="details-body">
         <div class="requisites-layout">
           <div class="requisites-card reveal">
             <div class="requisite-row">
@@ -309,6 +322,8 @@
             <a class="btn btn-outline" href="https://e-uprava.ru/main" target="_blank" rel="noopener">Открыть «Управу»</a>
           </aside>
         </div>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -378,7 +393,7 @@
   </main>
 
   <footer class="footer">
-    <div class="container footer-inner"><span>© 2026 ТСН «Павловская Жемчужина»</span><span>Прототип сайта · версия 26</span></div>
+    <div class="container footer-inner"><span>© 2026 ТСН «Павловская Жемчужина»</span><span>Прототип сайта · версия 27</span></div>
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>

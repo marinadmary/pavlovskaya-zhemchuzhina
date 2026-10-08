@@ -189,3 +189,114 @@
     padding:11px 12px;
   }
 }
+
+
+/* v27 — компактные сворачиваемые разделы */
+.compact-section{padding-top:72px;padding-bottom:72px}
+.compact-heading{margin-bottom:22px}
+.section-details{
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:#fff;
+  overflow:hidden;
+  box-shadow:0 12px 34px rgba(18,57,95,.05);
+}
+.section-details>summary{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:20px;
+  cursor:pointer;
+  padding:20px 24px;
+  font-size:16px;
+  font-weight:850;
+  color:var(--text);
+}
+.section-details>summary::-webkit-details-marker{display:none}
+.section-details>summary::after{
+  content:'+';
+  flex:0 0 34px;
+  width:34px;height:34px;
+  display:grid;place-items:center;
+  border-radius:50%;
+  background:#edf5fd;
+  color:var(--blue);
+  font-size:23px;
+  font-weight:500;
+  transition:.2s ease;
+}
+.section-details[open]>summary::after{content:'−';transform:rotate(180deg)}
+.section-details[open]>summary{border-bottom:1px solid var(--line)}
+.details-hint{
+  margin-left:auto;
+  color:var(--muted);
+  font-size:12px;
+  font-weight:650;
+}
+.details-body{padding:22px 24px 24px}
+#map .map-card{box-shadow:none}
+
+/* Документы — компактная сетка */
+#documents .doc-grid-files{
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  margin-bottom:18px;
+}
+#documents .doc-card{
+  min-height:0;
+  padding:17px 16px;
+  border-radius:17px;
+}
+#documents .doc-card span{font-size:10px;margin-bottom:10px}
+#documents .doc-card strong{font-size:15px;line-height:1.25;margin-bottom:5px}
+#documents .doc-card small{font-size:11px;line-height:1.4}
+.instructions-collapsible{margin-top:12px}
+.instructions-collapsible .instruction-stack{margin-top:0}
+
+/* Реквизиты — компактнее внутри раскрытия */
+.requisites-collapsible{margin-top:20px}
+.requisites-collapsible .details-body{padding:18px}
+.requisites-layout{
+  grid-template-columns:minmax(0,1.5fr) minmax(260px,.5fr);
+  gap:14px;
+}
+.requisites-card{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:0 18px;
+  padding:8px 18px;
+  border-radius:18px;
+  box-shadow:none;
+}
+.requisite-row{
+  padding:12px 0;
+  gap:10px;
+}
+.requisite-row strong{font-size:14px}
+.requisite-row small{font-size:11px}
+.copy-btn{padding:7px 9px;font-size:11px}
+.payment-purpose-card{padding:18px;border-radius:18px}
+.requisites-side{gap:10px;position:static}
+
+@media(max-width:1050px){
+  #documents .doc-grid-files{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media(max-width:800px){
+  #documents .doc-grid-files{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .requisites-layout{grid-template-columns:1fr}
+  .requisites-card{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .compact-section{padding-top:58px;padding-bottom:58px}
+  .section-details>summary{padding:17px 18px;gap:10px}
+  .details-hint{display:none}
+  .details-body{padding:16px}
+  #documents .doc-grid-files{grid-template-columns:1fr 1fr;gap:9px}
+  #documents .doc-card{padding:14px 13px}
+  #documents .doc-card small{display:none}
+  #documents .doc-card strong{font-size:14px}
+  .requisites-card{grid-template-columns:1fr;padding:6px 14px}
+  .requisite-row{grid-template-columns:minmax(0,1fr) auto}
+  .copy-btn{width:auto;padding:8px 9px}
+}
