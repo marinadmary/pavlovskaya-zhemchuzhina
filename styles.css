@@ -95,3 +95,97 @@
 .quick-card-accent:hover{box-shadow:0 24px 60px rgba(11,86,183,.28)}
 @media(max-width:900px){.quick-grid-six{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.quick-grid-six{grid-template-columns:1fr}}
+
+/* v26 — копирование банковских реквизитов */
+.requisites-layout{
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr);
+  gap:20px;
+  align-items:start;
+}
+.requisites-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:10px 24px;
+  box-shadow:0 14px 40px rgba(18,57,95,.06);
+}
+.requisite-row{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:18px;
+  align-items:center;
+  padding:17px 0;
+  border-bottom:1px solid var(--line);
+}
+.requisite-row:last-child{border-bottom:0}
+.requisite-row div{min-width:0}
+.requisite-row small{
+  display:block;
+  color:var(--muted);
+  font-size:12px;
+  margin-bottom:4px;
+}
+.requisite-row strong{
+  display:block;
+  font-size:15px;
+  overflow-wrap:anywhere;
+}
+.copy-btn{
+  border:1px solid #c8dcef;
+  background:#f7fbff;
+  color:var(--blue);
+  border-radius:10px;
+  padding:9px 12px;
+  font:inherit;
+  font-size:12px;
+  font-weight:800;
+  cursor:pointer;
+  white-space:nowrap;
+  transition:.18s;
+}
+.copy-btn:hover{background:#eaf4ff;border-color:#abcbe8}
+.copy-btn.copied{background:#e8f7ed;border-color:#b8dfc4;color:#287441}
+.requisites-side{
+  display:grid;
+  gap:12px;
+  position:sticky;
+  top:98px;
+}
+.payment-purpose-card{
+  background:#eaf4ff;
+  border:1px solid #c9def3;
+  border-radius:22px;
+  padding:24px;
+}
+.payment-purpose-card small{
+  display:block;
+  color:var(--muted);
+  margin-bottom:9px;
+}
+.payment-purpose-card strong{
+  display:block;
+  line-height:1.5;
+  margin-bottom:18px;
+}
+.copy-btn-primary{
+  background:#fff;
+  width:100%;
+}
+.copy-all-btn{width:100%}
+
+@media(max-width:900px){
+  .requisites-layout{grid-template-columns:1fr}
+  .requisites-side{position:static}
+}
+@media(max-width:620px){
+  .requisites-card{padding:6px 18px}
+  .requisite-row{
+    grid-template-columns:1fr;
+    gap:9px;
+  }
+  .copy-btn{
+    width:100%;
+    padding:11px 12px;
+  }
+}

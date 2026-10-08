@@ -50,3 +50,70 @@ const showToast=t=>{toast.textContent=t;toast.classList.add('show');setTimeout((
 document.querySelectorAll('.doc-card,.disabled').forEach(el=>el.addEventListener('click',()=>showToast('Ссылку или файл подключим в финальной версии сайта.')));
 
 document.querySelector('#feedbackForm').addEventListener('submit',e=>{e.preventDefault();showToast('Это демо-форма: отправку подключим после выбора почты или Telegram.');});
+
+
+// =============================
+// КОПИРОВАНИЕ РЕКВИЗИТОВ
+// =============================
+async function copyTextToClipboard(text) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+    const area = document.createElement('textarea');
+    area.value = text;
+    area.setAttribute('readonly', '');
+    area.style.position = 'fixed';
+    area.style.opacity = '0';
+    document.body.appendChild(area);
+    area.select();
+    const ok = document.execCommand('copy');
+    document.body.removeChild(area);
+    return ok;
+  } catch (e) {
+    return false;
+  }
+}
+
+document.querySelectorAll('.copy-btn[data-copy]').forEach(button => {
+  button.addEventListener('click', async () => {
+    const original = button.textContent;
+    const ok = await copyTextToClipboard(button.dataset.copy);
+    if (ok) {
+      button.textContent = 'Скопировано ✓';
+      button.classList.add('copied');
+      setTimeout(() => {
+        button.textContent = original;
+        button.classList.remove('copied');
+      }, 1800);
+    } else {
+      showToast('Не удалось скопировать. Выделите реквизит вручную.');
+    }
+  });
+});
+
+const copyAllButton = document.querySelector('#copyAllRequisites');
+if (copyAllButton) {
+  copyAllButton.addEventListener('click', async () => {
+    const allRequisites = `ТСН "ПАВЛОВСКАЯ ЖЕМЧУЖИНА"
+ИНН: 4705128409
+КПП: 470501001
+ОГРН: 1264700003380
+Расчётный счёт: 40703810655710001033
+Банк: СЕВЕРО-ЗАПАДНЫЙ БАНК ПАО СБЕРБАНК
+БИК: 044030653
+Корр. счёт: 30101810500000000653
+ИНН банка: 7707083893
+КПП банка: 784243001
+Назначение платежа: Ежемесячный Взнос члена ТСН Фамилия Имя номер участка`;
+    const ok = await copyTextToClipboard(allRequisites);
+    if (ok) {
+      const original = copyAllButton.textContent;
+      copyAllButton.textContent = 'Все реквизиты скопированы ✓';
+      setTimeout(() => copyAllButton.textContent = original, 1800);
+    } else {
+      showToast('Не удалось скопировать реквизиты.');
+    }
+  });
+}
