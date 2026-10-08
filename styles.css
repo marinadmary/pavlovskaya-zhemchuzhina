@@ -300,3 +300,72 @@
   .requisite-row{grid-template-columns:minmax(0,1fr) auto}
   .copy-btn{width:auto;padding:8px 9px}
 }
+
+/* v28 — понятные сворачиваемые блоки */
+details.compact-collapse,
+details.section-collapse,
+details.instructions-collapse,
+details.requisites-collapse,
+details.map-collapse{
+  margin-top:20px;
+}
+
+.collapse-trigger{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  width:100%;
+  box-sizing:border-box;
+  padding:16px 18px;
+  border:1px solid #c8dcef;
+  border-radius:14px;
+  background:#f7fbff;
+  color:#0b5cc4;
+  font-weight:800;
+  font-size:16px;
+  line-height:1.2;
+  cursor:pointer;
+  user-select:none;
+  transition:background .18s ease, border-color .18s ease, transform .18s ease, box-shadow .18s ease;
+}
+
+.collapse-trigger::-webkit-details-marker{display:none}
+
+.collapse-trigger:hover{
+  background:#eaf4ff;
+  border-color:#9fc7eb;
+  box-shadow:0 8px 20px rgba(18,57,95,.08);
+  transform:translateY(-1px);
+}
+
+.collapse-trigger:focus-visible{
+  outline:3px solid rgba(11,92,196,.18);
+  outline-offset:3px;
+}
+
+.collapse-icon{
+  flex:0 0 auto;
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#fff;
+  border:1px solid #c8dcef;
+  font-size:20px;
+  line-height:1;
+  transition:transform .18s ease;
+}
+
+details[open] > .collapse-trigger .collapse-icon{
+  transform:rotate(45deg);
+}
+
+@media(max-width:620px){
+  .collapse-trigger{
+    padding:14px 15px;
+    font-size:15px;
+  }
+}
