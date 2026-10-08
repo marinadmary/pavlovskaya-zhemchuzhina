@@ -81,3 +81,17 @@
     line-height:1.45;
   }
 }
+
+/* v16 — вступление, инструкции и фотогалерея новостей */
+.join-section{background:var(--blue);color:#fff;padding:90px 0}.join-layout{display:grid;grid-template-columns:.78fr 1.22fr;gap:60px;align-items:start}.join-copy h2{font-size:clamp(40px,5vw,64px);line-height:1;letter-spacing:-.04em;margin-bottom:22px}.join-copy>p:not(.eyebrow){color:rgba(255,255,255,.84);font-size:18px}.join-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.join-outline{border-color:rgba(255,255,255,.45);color:#fff;background:transparent}.join-steps{display:grid;grid-template-columns:1fr 1fr;gap:12px}.join-steps article{display:flex;gap:16px;padding:22px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.17);border-radius:20px}.join-steps article>span{font-size:12px;font-weight:900;color:#9fd0ff}.join-steps strong{display:block;font-size:18px;margin-bottom:6px}.join-steps p{margin:0;color:rgba(255,255,255,.76);font-size:13px}.instruction-stack{display:grid;gap:14px;margin-top:18px}.instruction-stack .info-note{margin-top:0}.faq-steps{margin:0 0 14px;padding-left:20px}.faq-steps li{margin-bottom:8px}.news-card.has-gallery{grid-column:1/-1;padding:0;overflow:hidden;display:grid;grid-template-columns:1.35fr .65fr;min-height:0}.news-card.has-gallery .news-content{padding:28px;display:flex;flex-direction:column}.news-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:#eef4fa}.news-gallery img{width:100%;height:220px;object-fit:cover}.news-card:not(.has-gallery) .news-content{display:flex;flex-direction:column;height:100%}.news-card.has-gallery h3{margin-top:28px}.news-card.has-gallery .news-tag{margin-top:auto}.document-notes{display:none}
+@media(max-width:900px){.join-layout{grid-template-columns:1fr}.join-steps{grid-template-columns:1fr 1fr}.news-card.has-gallery{grid-template-columns:1fr}.news-gallery img{height:190px}}
+@media(max-width:620px){.join-section{padding:70px 0}.join-steps{grid-template-columns:1fr}.news-gallery{grid-template-columns:1fr 1fr}.news-gallery img{height:150px}}
+
+/* v17 — шесть быстрых переходов; акцентные карточки */
+.quick-grid-six{grid-template-columns:repeat(3,1fr)}
+.quick-card-accent{background:var(--blue);color:#fff;border-color:var(--blue)}
+.quick-card-accent .quick-icon{background:rgba(255,255,255,.16);color:#fff}
+.quick-card-accent small{color:rgba(255,255,255,.82)}
+.quick-card-accent:hover{box-shadow:0 24px 60px rgba(11,86,183,.28)}
+@media(max-width:900px){.quick-grid-six{grid-template-columns:1fr 1fr}}
+@media(max-width:620px){.quick-grid-six{grid-template-columns:1fr}}
