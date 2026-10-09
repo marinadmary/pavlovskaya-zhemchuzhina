@@ -629,3 +629,32 @@ body.lightbox-open{overflow:hidden}
     right:8px;
   }
 }
+
+
+/* v34 — исправление мобильного меню архива */
+@media(max-width:900px){
+  .archive-nav{
+    display:none;
+  }
+
+  .archive-nav.open{
+    display:flex;
+  }
+
+  .archive-header .header-row{
+    position:relative;
+  }
+
+  .archive-header .menu-toggle{
+    display:block;
+    cursor:pointer;
+  }
+}
+
+@media(max-width:620px){
+  .archive-nav{
+    top:68px;
+    left:14px;
+    right:14px;
+  }
+}
