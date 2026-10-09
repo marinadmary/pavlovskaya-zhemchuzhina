@@ -1,13 +1,3 @@
-// =============================
-// РЕДАКТИРОВАТЬ НОВОСТИ ЗДЕСЬ
-// Добавляйте новую запись первой.
-// =============================
-const news = [
-  { date: '01 октября 2026', title: 'Сформированы счета за октябрь', text: '1 числа в «Управе» сформированы очередные счета. Оплатить их уже можно.', tag: 'Взносы' },
-  { date: '30 сентября 2026', title: 'Итоги работы ТСН за сентябрь', text: 'Подключено электричество на въездной зоне, запущен шлагбаум, организована круглосуточная охрана и восстановлено видеонаблюдение.', tag: 'Отчёт', images: ['assets/september-works-01.png','assets/september-works-02.png','assets/september-works-03.png','assets/september-works-04.png','assets/september-works-05.png','assets/september-works-06.png'] },
-  { date: '30 сентября 2026', title: 'Планы работ на октябрь', text: 'Покос обочин, укрепление дороги на линии 157–167 и дренажирование проблемного участка между 409 и 402.', tag: 'Благоустройство' }
-];
-
 const faqs = [
   ['Как вступить в ТСН?', '<ol class="faq-steps"><li>Скачайте заявление о вступлении или возьмите бланк на КПП.</li><li>Заполните заявление и согласие на обработку персональных данных, приложите выписку из ЕГРН на участок.</li><li>Передайте документы в Правление: через жёлтый почтовый ящик на КПП, лично председателю или скан-копией на pavlov_pearl@mail.ru с последующей передачей оригинала.</li><li>После принятия в члены ТСН оплатите вступительный взнос 2 500 ₽.</li><li>Получите по e-mail и SMS приглашение для регистрации в «Управе».</li></ol><a class="text-link" href="assets/zayavlenie-o-vstuplenii-v-tsn.docx" download>Скачать заявление о вступлении →</a>'],
   ['Почему ежемесячный взнос составляет 2 500 ₽?', 'Размер ежемесячного взноса утверждён общим собранием. Средства направляются на содержание и благоустройство общего имущества в рамках утверждённой сметы.'],
@@ -19,12 +9,18 @@ const faqs = [
 ];
 
 const newsGrid = document.querySelector('#newsGrid');
-news.forEach(item => {
+const latestNews = [...(window.SITE_NEWS || [])]
+  .sort((a,b) => b.sort.localeCompare(a.sort))
+  .slice(0, 3);
+
+latestNews.forEach(item => {
   const card = document.createElement('article');
   card.className = `news-card reveal${item.images?.length ? ' has-gallery' : ''}`;
   const gallery = item.images?.length
     ? `<div class="news-gallery">${item.images.map((src, index) => `<img src="${src}" alt="${item.title}, фото ${index + 1}" loading="lazy">`).join('')}</div>`
-    : '';
+    : item.image
+      ? `<div class="news-gallery single"><img src="${item.image}" alt="${item.title}" loading="lazy"></div>`
+      : '';
   card.innerHTML = `${gallery}<div class="news-content"><div class="news-date">${item.date}</div><h3>${item.title}</h3><p>${item.text}</p><div class="news-tag">${item.tag}</div></div>`;
   newsGrid.appendChild(card);
 });
