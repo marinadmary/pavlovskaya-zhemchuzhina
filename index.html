@@ -140,7 +140,7 @@
             <li>Гостям, такси и обычной доставке открывает собственник</li>
             <li>Грузовой въезд — через охрану</li>
           </ul>
-          <div class="contact-chips"><a href="tel:+79214159242">Шлагбаум</a><a href="tel:+79214159243">Охрана</a></div>
+          <div class="contact-chips"><a class="phone-link" href="tel:+79214159242">Шлагбаум</a><a class="phone-link" href="tel:+79214159243">Охрана</a></div>
         </div>
       </div>
     </section>
@@ -343,15 +343,19 @@
           <p class="eyebrow blue">Обратная связь</p>
           <h2>Есть вопрос Правлению?</h2>
           <p>Оставьте обращение. Мы ответим в течение 2-х рабочих дней.</p>
-          <div class="notice"><strong>Сейчас это демонстрационная форма.</strong><br>Она показывает, как будет выглядеть раздел, но пока не отправляет данные.</div>
+          <div class="notice"><strong>Форма работает.</strong><br>После отправки обращение поступит Правлению ТСН на электронную почту.</div>
         </div>
         <form class="feedback-form reveal" id="feedbackForm">
+          <input type="hidden" name="access_key" value="de73d5c4-1852-484e-b50b-da89b9cb6ca0">
+          <input type="hidden" name="subject" value="Новое обращение с сайта ТСН «Павловская Жемчужина»">
+          <input type="hidden" name="from_name" value="Сайт ТСН «Павловская Жемчужина»">
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
           <label>Имя<input type="text" name="name" placeholder="Как к вам обращаться" required></label>
           <label>Номер участка<input type="text" name="plot" placeholder="Например, 157"></label>
           <label>Телефон или e-mail<input type="text" name="contact" placeholder="Для ответа" required></label>
-          <label>Тема<select name="topic"><option>Общий вопрос</option><option>Шлагбаум и охрана</option><option>Взносы и финансы</option><option>Дороги и благоустройство</option><option>Документы</option></select></label>
+          <label>Тема<select name="topic"><option value="Общий вопрос">Общий вопрос</option><option value="Шлагбаум и охрана">Шлагбаум и охрана</option><option value="Взносы и финансы">Взносы и финансы</option><option value="Дороги и благоустройство">Дороги и благоустройство</option><option value="Документы">Документы</option></select></label>
           <label class="full">Сообщение<textarea name="message" rows="5" placeholder="Опишите вопрос" required></textarea></label>
-          <label class="consent full"><input type="checkbox" required><span>Согласен(на) на обработку персональных данных для ответа на обращение.</span></label>
+          <label class="consent full"><input type="checkbox" name="consent" value="Согласие получено" required><span>Согласен(на) на обработку персональных данных для ответа на обращение.</span></label>
           <button class="btn btn-primary full" type="submit">Отправить обращение</button>
         </form>
       </div>
@@ -381,9 +385,9 @@
           <div class="contact-lines">
             <div class="contact-lines-full"><small>Адрес КП</small><strong>188348, Ленинградская область, Гатчинский муниципальный округ,<br>коттеджный посёлок Павловская жемчужина</strong></div>
             <div><small>Приём в офисе</small><strong>суббота, 13:00–16:00</strong></div>
-            <div><small>Председатель Правления</small><a href="tel:+79226857773">Керимов Рамиль · +7 (922) 685-77-73</a></div>
-            <div><small>Шлагбаум</small><a href="tel:+79214159242">+7 (921) 415-92-42</a></div>
-            <div><small>Охрана</small><a href="tel:+79214159243">+7 (921) 415-92-43</a></div>
+            <div><small>Председатель Правления</small><a class="phone-link" href="tel:+79226857773">Керимов Рамиль · +7 (922) 685-77-73</a></div>
+            <div><small>Шлагбаум</small><a class="phone-link" href="tel:+79214159242">+7 (921) 415-92-42</a></div>
+            <div><small>Охрана</small><a class="phone-link" href="tel:+79214159243">+7 (921) 415-92-43</a></div>
             <div><small>Официальный канал</small><a href="https://max.ru/join/TcC6BBasvoT4Y1h8aFy3ZYpE2SZgT-ccSAhYjDkr8n4" target="_blank" rel="noopener">Max</a></div>
             <div><small>Новости</small><a href="https://vk.ru/club219287578" target="_blank" rel="noopener">ВКонтакте</a></div>
             <div><small>Телеграм</small><a href="https://t.me/TSN_PJ_BOT" target="_blank" rel="noopener">@TSN_PJ_BOT</a></div>

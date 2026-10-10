@@ -45,7 +45,43 @@ const toast=document.querySelector('#toast');
 const showToast=t=>{toast.textContent=t;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),3200)};
 document.querySelectorAll('.doc-card,.disabled').forEach(el=>el.addEventListener('click',()=>showToast('Ссылку или файл подключим в финальной версии сайта.')));
 
-document.querySelector('#feedbackForm').addEventListener('submit',e=>{e.preventDefault();showToast('Это демо-форма: отправку подключим после выбора почты или Telegram.');});
+const feedbackForm = document.querySelector('#feedbackForm');
+
+if (feedbackForm) {
+  feedbackForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const submitButton = feedbackForm.querySelector('button[type="submit"]');
+    const originalText = submitButton.textContent;
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Отправляем…';
+
+    try {
+      const formData = new FormData(feedbackForm);
+
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        feedbackForm.reset();
+        showToast('Обращение отправлено. Правление получило ваше сообщение.');
+      } else {
+        throw new Error(result.message || 'Ошибка отправки');
+      }
+    } catch (error) {
+      console.error('Feedback form error:', error);
+      showToast('Не удалось отправить обращение. Попробуйте ещё раз или напишите на pavlov_pearl@mail.ru.');
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = originalText;
+    }
+  });
+}
 
 
 // =============================
